@@ -5,7 +5,11 @@ import CollegeBasketballTeams from './CollegeBasketballTeams.json'; // This is t
 
 // This is a functional component that renders a welcome message to the screen
 function Welcome() {
-  return <h1>Welcome to Cameron Hammond's NBA March Maddness list.</h1>;
+  return (
+    <div className="welcome-message">
+      <h1>Welcome to Cameron Hammond's NBA March Maddness list.</h1>;
+    </div>
+  );
 }
 
 type TeamProps = {
@@ -22,7 +26,7 @@ class Team extends React.Component<TeamProps> {
     const { school, name, city, state } = this.props;
 
     return (
-      <div>
+      <div className="team-card">
         <h2>{this.props.school}</h2>
         <p>{this.props.name}</p>
         <p>{this.props.city}</p>
@@ -45,7 +49,7 @@ type CollegeBasketballTeamsType = {
 // This is a functional component that renders a list of teams to the screen
 function TeamList() {
   return (
-    <div>
+    <div className="team-grid">
       {(CollegeBasketballTeams as CollegeBasketballTeamsType).teams.map(
         (teamNum) => (
           <Team {...teamNum} />
